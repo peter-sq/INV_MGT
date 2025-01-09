@@ -1,7 +1,17 @@
 "use client";
-import { LampFloorIcon, Layout, LayoutDashboard, Link, LucideIcon, Menu } from 'lucide-react';
-import React from 'react';
+import {
+  Archive,
+  CircleDollarSign,
+  Clipboard,
+  Layout,
+  LucideIcon,
+  Menu,
+  SlidersHorizontal,
+  User,
+} from "lucide-react";
 import { useAppDispatch, useAppSelector } from '../../redux';
+import Image from "next/image";
+import Link from "next/link";
 import { setIsSidebarCollapsed } from '../../state';
 import { usePathname } from 'next/navigation';
 
@@ -35,7 +45,7 @@ const SidebarLink = ({
         <Icon className='w-6 h-6 text-gray-700'/>
         <span className={`${isCollapsed ? "hidden" : "block"}
         font-medium text-gray-700`}>
-
+        {label}
         </span>
       </div>
     </Link>
@@ -75,13 +85,58 @@ const Sidebar = () => {
                 {/* links here */}
                 <SidebarLink
                  href='/dashboard' 
-                 icon={LampFloorIcon} 
+                 icon={Layout} 
                  label='Dashboard' 
                  isCollapsed={isSidebarCollapsed}/>
 
              </div>
+             <div className='flex-grow mt-8'>
+                {/* links here */}
+                <SidebarLink
+                 href='/inventory' 
+                 icon={Archive} 
+                 label='Inventory' 
+                 isCollapsed={isSidebarCollapsed}/>
+
+             </div>
+             <div className='flex-grow mt-8'>
+                {/* links here */}
+                <SidebarLink
+                 href='/products' 
+                 icon={Clipboard} 
+                 label='Products' 
+                 isCollapsed={isSidebarCollapsed}/>
+
+             </div>
+             <div className='flex-grow mt-8'>
+                {/* links here */}
+                <SidebarLink
+                 href='/users' 
+                 icon={User} 
+                 label='Users' 
+                 isCollapsed={isSidebarCollapsed}/>
+
+             </div>
+             <div className='flex-grow mt-8'>
+                {/* links here */}
+                <SidebarLink
+                 href='/settings' 
+                 icon={SlidersHorizontal} 
+                 label='Settings' 
+                 isCollapsed={isSidebarCollapsed}/>
+
+             </div>
+             <div className='flex-grow mt-8'>
+                {/* links here */}
+                <SidebarLink
+                 href='/expenses' 
+                 icon={CircleDollarSign} 
+                 label='Expenses' 
+                 isCollapsed={isSidebarCollapsed}/>
+
+             </div>
              {/* FOOTER */}
-             <div>
+             <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
                 <p className='text-center text-xs text-gray-500'>&copy; 2024 PETVOT</p>
              </div>
       </div>
