@@ -10,47 +10,47 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDashboardMetrics = void 0;
-const extension_1 = require("@prisma/client/extension");
-const Prisma = new extension_1.PrismaClient();
+const client_1 = require("@prisma/client");
+const prisma = new client_1.PrismaClient();
 const getDashboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const popularProducts = yield Prisma.product.findMany({
+        const popularProducts = yield prisma.products.findMany({
             take: 15,
             orderBy: {
-                stockQuantity: 'desc'
-            }
+                stockQuantity: "desc",
+            },
         });
-        const salesSummary = yield Prisma.salesSummary.findMany({
+        const salesSummary = yield prisma.salesSummary.findMany({
             take: 5,
             orderBy: {
-                date: 'desc'
-            }
+                date: "desc",
+            },
         });
-        const purchaseSummary = yield Prisma.purchaseSummary.findMany({
+        const purchaseSummary = yield prisma.purchaseSummary.findMany({
             take: 5,
             orderBy: {
-                date: 'desc'
-            }
+                date: "desc",
+            },
         });
-        const expenseSummary = yield Prisma.expenseSummary.findMany({
+        const expenseSummary = yield prisma.expenseSummary.findMany({
             take: 5,
             orderBy: {
-                date: 'desc'
-            }
+                date: "desc",
+            },
         });
-        const expenseByCategorySummaryRaw = yield Prisma.expenseByCategorySummary.findMany({
+        const expenseByCategorySummaryRaw = yield prisma.expenseByCategory.findMany({
             take: 5,
             orderBy: {
-                date: 'desc'
-            }
+                date: "desc",
+            },
         });
         const expenseByCategorySummary = expenseByCategorySummaryRaw.map((item) => (Object.assign(Object.assign({}, item), { amount: item.amount.toString() })));
         res.json({
             popularProducts,
-            purchaseSummary,
-            expenseByCategorySummary,
-            expenseSummary,
             salesSummary,
+            purchaseSummary,
+            expenseSummary,
+            expenseByCategorySummary,
         });
     }
     catch (error) {

@@ -1,79 +1,37 @@
 {
-<<<<<<< HEAD
   "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "ts-node ./prisma/seed.ts",
+    "seed": "ts-node prisma/seed.ts",
     "build": "rimraf dist && npx tsc",
-    "start": "npm run build  && node dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "dev": "npm run build && concurrently \"npx tsc -w\" \"nodemon --exec ts-node src/index.ts\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.2.1",
-    "body-parser": "^1.20.3",
-    "concurrently": "^9.1.2",
+    "@prisma/client": "^5.16.2",
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "helmet": "^8.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
     "morgan": "^1.10.0",
-    "prisma": "^6.2.1",
+    "prisma": "^5.16.2",
     "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
+    "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.10.7",
-    "nodemon": "^3.1.9",
+    "@types/node": "^20.14.10",
+    "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
-=======
-  "name": "inventory-management",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@mui/material": "^6.1.0",
-    "@mui/x-data-grid": "^7.17.0",
-    "@reduxjs/toolkit": "^2.2.8",
-    "axios": "^1.7.7",
-    "dotenv": "^16.4.5",
-    "lucide-react": "^0.441.0",
-    "next": "14.2.11",
-    "numeral": "^2.0.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-redux": "^9.1.2",
-    "rechart": "^0.0.1",
-    "redux-persist": "^6.0.0",
-    "uuid": "^10.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.16.5",
-    "@types/numeral": "^2.0.5",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/uuid": "^10.0.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.11",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "tw-colors": "^3.3.2",
-    "typescript": "^5"
->>>>>>> origin/main
+    "typescript": "^5.5.3"
   }
 }
